@@ -13,11 +13,11 @@ SPIDER_MODULES = ['scraper.spiders']
 NEWSPIDER_MODULE = 'scraper.spiders'
 
 ### Playwright settings
-#DOWNLOAD_HANDLERS = {
-#    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
-#    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
-#}
-#TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 ###
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
