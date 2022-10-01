@@ -11,7 +11,7 @@ Carggregator is a second-hand car ads aggregator.
 
 Carggregator uses a number of open source projects to work properly:
 
-- [Scrappy] - A fast high-level web crawling and web scraping framework.
+- [Scrapy] - A fast high-level web crawling and web scraping framework.
 - [Elasticsearch] - Distributed, RESTful search and analytics engine at the heart of the Elastic Stack.
 
 And of course Carggregator itself is open source with a [public repository][carggregator] on GitHub.
@@ -71,5 +71,5 @@ GNU General Public License v3.0
 
 [carggregator]: <https://github.com/eliseobao/carggregator>
 [git-repo-url]: <https://github.com/eliseobao/carggregator.git>
-[Scrappy]: <https://github.com/scrapy/scrapy>
+[Scrapy]: <https://github.com/scrapy/scrapy>
 [Elasticsearch]: <https://github.com/elastic/elasticsearch>
