@@ -1,2 +1,4 @@
 black==22.8.0
+scrapy>=2.6.3
+scrapy-fake-useragent>=1.4.4
 
