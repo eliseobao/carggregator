@@ -12,16 +12,9 @@ BOT_NAME = 'scrapper'
 SPIDER_MODULES = ['scrapper.spiders']
 NEWSPIDER_MODULE = 'scrapper.spiders'
 
-
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-FAKEUSERAGENT_PROVIDERS = [
-    'scrapy_fake_useragent.providers.FakeUserAgentProvider',  # This is the first provider we'll try
-    'scrapy_fake_useragent.providers.FakerProvider',  # If FakeUserAgentProvider fails, we'll use faker to generate a user-agent string for us
-    'scrapy_fake_useragent.providers.FixedUserAgentProvider',  # Fall back to USER_AGENT value
-]
-
-## Set Fallback User-Agent
-USER_AGENT = '<your user agent string which you will fall back to if all other providers fail>'
+## Set User-Agent
+from user_agent import generate_user_agent
+USER_AGENT = generate_user_agent()
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -32,8 +25,8 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
-# RANDOMIZE_DOWNLOAD_DELAY = True
+DOWNLOAD_DELAY = 3
+RANDOMIZE_DOWNLOAD_DELAY = True
 
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
@@ -60,12 +53,10 @@ ROBOTSTXT_OBEY = False
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 ## settings.py
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
-    'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-    'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
-}
+# DOWNLOADER_MIDDLEWARES = {
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+# }
 
 
 # Enable or disable extensions
