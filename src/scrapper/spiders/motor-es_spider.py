@@ -1,18 +1,20 @@
-import scrapy
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 
+from scrapper.items import MotorEsItem
 
-class QuotesSpider(scrapy.Spider):
+class MotorEsSpider(CrawlSpider):
     name = "motor.es"
-    start_urls = [
-        'https://www.motor.es/coches-segunda-mano/',
-    ]
+    allowed_domains = ["motor.es"]
+    start_urls = ["https://www.motor.es/coches-segunda-mano"]
+    rules = (Rule(LinkExtractor(allow='coches-segunda-mano'), callback='parse_item', follow=True),)
 
-    def parse(self, response):
+    def parse_item(self, response):
+        item = MotorEsItem()
 
-        for car_link in response.css('h3 .coche-link ::attr(href)').getall():
-            print(f'Link: {car_link}')
+        item["price"] = response.css('.precio ::text').get().strip()
+        # TODO more items
 
-        next_page = response.css('.js-next-page ::attr(href)').get()
-        print(f'Next page: {next_page}')
-        if next_page is not None:
-            yield response.follow(next_page, callback=self.parse)
+        if item["price"] is not None:
+            yield item
+
