@@ -1,5 +1,18 @@
 # Carggregator
 
+![GitHub Logo](https://github.com/eliseobao/carggregator/blob/develop/images/carggregator_logo.svg)
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+
 
 ## _Your second-hand car easier than ever_
 
@@ -11,7 +24,7 @@ Carggregator is a second-hand car ads aggregator.
 
 Carggregator uses a number of open source projects to work properly:
 
-- [Scrapy] - A fast high-level web crawling and web scraping framework.
+- [Scrappy] - A fast high-level web crawling and web scraping framework.
 - [Elasticsearch] - Distributed, RESTful search and analytics engine at the heart of the Elastic Stack.
 
 And of course Carggregator itself is open source with a [public repository][carggregator] on GitHub.
@@ -71,5 +84,5 @@ GNU General Public License v3.0
 
 [carggregator]: <https://github.com/eliseobao/carggregator>
 [git-repo-url]: <https://github.com/eliseobao/carggregator.git>
-[Scrapy]: <https://github.com/scrapy/scrapy>
+[Scrappy]: <https://github.com/scrapy/scrapy>
 [Elasticsearch]: <https://github.com/elastic/elasticsearch>
