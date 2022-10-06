@@ -1,11 +1,30 @@
 # Carggregator
 
-![GitHub Logo](https://github.com/eliseobao/carggregator/blob/develop/images/carggregator_logo.svg)
+<p align="center">
+  <img src="https://github.com/eliseobao/carggregator/blob/develop/images/carggregator_logo.svg" alt="Sublime's custom image"/>
+</p>
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
-This work is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+<p align="center">
+    <a href="https://github.com/eliseobao/carggregator/blob/develop/LICENSE" alt="License">
+        <img src="https://img.shields.io/github/license/eliseobao/carggregator" />
+    </a>
+    <a href="https://github.com/eliseobao/carggregator/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/eliseobao/carggregator" />
+    </a>
+    <a href="https://github.com/eliseobao/carggregator/pulse" alt="Activity">
+        <img src="https://img.shields.io/github/commit-activity/m/eliseobao/carggregator" />
+    </a>
+    <a href="#stars" alt="Stars">
+        <img src="https://img.shields.io/github/stars/eliseobao/carggregator" />
+    </a>
+    <a href="#forks" alt="Forks">
+        <img src=https://img.shields.io/github/forks/eliseobao/carggregator" />
+    </a>
+</p>
+
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
 
