@@ -1,7 +1,7 @@
-# Carggregator
+# carggregator
 
 <p align="center">
-  <img src="https://github.com/eliseobao/carggregator/blob/develop/images/carggregator_logo.svg" alt="Sublime's custom image"/>
+  <img src="https://github.com/eliseobao/carggregator/blob/develop/images/corporate/carggregator_logo_1.svg" alt="carggregator logo"/>
 </p>
 
 
@@ -17,9 +17,6 @@
     </a>
     <a href="#stars" alt="Stars">
         <img src="https://img.shields.io/github/stars/eliseobao/carggregator" />
-    </a>
-    <a href="#forks" alt="Forks">
-        <img src=https://img.shields.io/github/forks/eliseobao/carggregator" />
     </a>
 </p>
 
