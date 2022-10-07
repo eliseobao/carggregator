@@ -1,4 +1,4 @@
-# Scrapy settings for scrapper project
+# Scrapy settings for scraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'scrapper'
+BOT_NAME = 'scraper'
 
-SPIDER_MODULES = ['scrapper.spiders']
-NEWSPIDER_MODULE = 'scrapper.spiders'
+SPIDER_MODULES = ['scraper.spiders']
+NEWSPIDER_MODULE = 'scraper.spiders'
 
 ## Set User-Agent
 from user_agent import generate_user_agent
@@ -47,7 +47,7 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'scrapper.middlewares.ScrapperSpiderMiddleware': 543,
+#    'scraper.middlewares.ScraperSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
@@ -67,9 +67,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapper.pipelines.ScrapperPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'scraper.pipelines.CleanUpPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
