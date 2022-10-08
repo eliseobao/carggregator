@@ -21,10 +21,10 @@ black:
 		${DEV_IMAGE_NAME} black /app
 
 up:
-	(cd devops/dev/ && docker compose up -d)
+	(cd devops && docker compose up -d)
 
 down:
-	(cd devops/dev/ && docker compose down -v)
+	(cd devops && docker compose down -v)
 
 crawl-motor.es:
 	docker run -it --rm \
