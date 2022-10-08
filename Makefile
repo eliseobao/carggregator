@@ -11,13 +11,22 @@ dev/build:
 		-f devops/dev/Dockerfile \
 		-t ${DEV_IMAGE_NAME} .
 
-
 dev/shell:
 	docker run -it --rm \
 		-v $(shell pwd)/src:/app \
 		--entrypoint /bin/bash \
 		${DEV_IMAGE_NAME}
 
+dev/up:
+	(cd devops/dev/ && docker compose up -d)
+
+dev/down:
+	(cd devops/dev/ && docker compose down -v)
+
+dev/crawl-motor.es:
+	docker run -it --rm \
+		-v $(shell pwd)/src:/app \
+		${DEV_IMAGE_NAME} scrapy crawl motor.es
 black:
 	docker run -it --rm \
 		-v $(shell pwd)/src:/app \
