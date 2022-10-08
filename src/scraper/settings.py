@@ -75,7 +75,6 @@ ITEM_PIPELINES = {
 ELASTICSEARCH_SERVERS = ['http://localhost:9200']
 ELASTICSEARCH_INDEX = 'carggregator'
 ELASTICSEARCH_INDEX_DATE_FORMAT = '%Y-%m'
-ELASTICSEARCH_TYPE = 'items'
 ELASTICSEARCH_UNIQ_KEY = 'url'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
