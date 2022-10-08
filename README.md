@@ -44,6 +44,7 @@ Carggregator uses a number of open source projects to work properly:
 
 - [Black] - An uncompromising Python code formatter.
 - [Scrappy] - A fast high-level web crawling and web scraping framework.
+- [user_agent] - A module for generating random, valid web user agents.
 - [Elasticsearch] - Distributed, RESTful search and analytics engine at the heart of the Elastic Stack.
 - [Kibana] - A browser-based analytics and search dashboard for Elasticsearch.
 - [ScrapyElasticSearch] - An Scrapy pipeline which allows you to store scrapy items in Elasticsearch.
@@ -67,12 +68,12 @@ bash .bin/git_gitflow.sh init
 
 Start a new feature:
 ```sh
-git flow feature start <FEATURE>
+git flow feature start Issue-X
 ```
 
 Finish a feature:
 ```sh
-git flow feature finish <FEATURE>
+git flow feature finish Issue-X
 ```
 
 ### Docker
@@ -128,6 +129,7 @@ GNU General Public License v3.0
 
 [Black]: <https://github.com/psf/black>
 [Scrappy]: <https://github.com/scrapy/scrapy>
+[user_agent]: <https://github.com/lorien/user_agent>
 [Elasticsearch]: <https://github.com/elastic/elasticsearch>
 [Kibana]: <https://github.com/elastic/kibana>
 [ScrapyElasticSearch]: <https://github.com/jayzeng/scrapy-elasticsearch>
