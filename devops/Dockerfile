@@ -1,7 +1,7 @@
 FROM python:3.9-slim-bullseye
 ARG UNAME=user
 
-COPY devops/dev/requirements.txt /app/requirements.txt
+COPY devops/requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
