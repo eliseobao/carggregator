@@ -1,7 +1,9 @@
 # carggregator
 
 <p align="center">
-  <img src="https://github.com/eliseobao/carggregator/blob/develop/images/corporate/carggregator_logo_1.svg" alt="carggregator logo"/>
+    <a href="https://github.com/eliseobao/carggregator/" alt="carggregator">
+        <img src="https://github.com/eliseobao/carggregator/blob/develop/images/corporate/carggregator_logo_1.svg" />
+    </a>
 </p>
 
 
@@ -40,8 +42,11 @@ Carggregator is a second-hand car ads aggregator.
 
 Carggregator uses a number of open source projects to work properly:
 
+- [Black] - An uncompromising Python code formatter.
 - [Scrappy] - A fast high-level web crawling and web scraping framework.
 - [Elasticsearch] - Distributed, RESTful search and analytics engine at the heart of the Elastic Stack.
+- [Kibana] - A browser-based analytics and search dashboard for Elasticsearch.
+- [ScrapyElasticSearch] - An Scrapy pipeline which allows you to store scrapy items in Elasticsearch.
 
 And of course Carggregator itself is open source with a [public repository][carggregator] on GitHub.
 
@@ -56,19 +61,16 @@ Want to contribute? Great!
 Carggregator uses git-flow to structure its repository! Open your favorite Terminal and run these commands.
 
 Initialize git-flow:
-
 ```sh
 bash .bin/git_gitflow.sh init
 ```
 
 Start a new feature:
-
 ```sh
 git flow feature start <FEATURE>
 ```
 
 Finish a feature:
-
 ```sh
 git flow feature finish <FEATURE>
 ```
@@ -76,15 +78,38 @@ git flow feature finish <FEATURE>
 ### Docker
 
 Build the development image:
-
 ```sh
-make dev/build
+make build
 ```
 
 Connect to the development image:
-
 ```sh
-make dev/shell
+make shell
+```
+
+Format source code:
+```sh
+make black
+```
+
+
+## Usage
+
+### Docker
+
+Deploy Elasticsearch and Kibana services:
+```sh
+make up
+```
+
+Stop Elasticsearch and Kibana services:
+```sh
+make down
+```
+
+Crawl and index [motor.es](https://www.motor.es/coches-segunda-mano/):
+```sh
+make crawl-motor.es
 ```
 
 
@@ -100,5 +125,9 @@ GNU General Public License v3.0
 
 [carggregator]: <https://github.com/eliseobao/carggregator>
 [git-repo-url]: <https://github.com/eliseobao/carggregator.git>
+
+[Black]: <https://github.com/psf/black>
 [Scrappy]: <https://github.com/scrapy/scrapy>
 [Elasticsearch]: <https://github.com/elastic/elasticsearch>
+[Kibana]: <https://github.com/elastic/kibana>
+[ScrapyElasticSearch]: <https://github.com/jayzeng/scrapy-elasticsearch>

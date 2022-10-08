@@ -69,7 +69,13 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'scraper.pipelines.CleanUpPipeline': 300,
+   'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline': 500
 }
+
+ELASTICSEARCH_SERVERS = ['http://localhost:9200']
+ELASTICSEARCH_INDEX = 'carggregator'
+ELASTICSEARCH_INDEX_DATE_FORMAT = '%Y-%m'
+ELASTICSEARCH_UNIQ_KEY = 'url'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
