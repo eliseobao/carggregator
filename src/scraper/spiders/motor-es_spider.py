@@ -19,12 +19,13 @@ class MotorEsSpider(CrawlSpider):
         if title is not None:
             item["title"] = title
             item["url"] = response.request.url
-            item["location"] = response.css('.datos .lugar ::text').get()
+            item["location"] = response.request.url.split('/')[4].replace('-', ' ').title()
 
-            for key, value in zip(
-                    response.css('.ficha.zona-contenido dt ::text').getall(),
-                    response.css('.ficha.zona-contenido dd ::text').getall()
-            ):
+            keys = response.css('.ficha.zona-contenido dt ::text').getall()
+            values = response.css('.ficha.zona-contenido dd ::text').getall()
+            if 'Distintivo ambiental' in keys: keys.remove('Distintivo ambiental')
+
+            for key, value in zip(keys, values):
                 if key in MotorEsEnum.list():
                     item[MotorEsEnum(key).name] = value
 

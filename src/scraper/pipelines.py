@@ -18,9 +18,6 @@ class CleanUpPipeline:
             if key in ["odometer", "price_cash", "price_financed", "hp"]:
                 item[key] = get_only_numbers(value)
 
-            if key == "location" and '(' in value:
-                item[key] = value[value.find("(") + 1:value.find(")")]
-
             if key == "registration_date" and '/' in value:
                 item[key] = value.split('/')[1].strip()
 
