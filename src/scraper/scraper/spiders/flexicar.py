@@ -5,7 +5,7 @@ from scraper.items import FlexicarItem
 class FlexicarSpider(CrawlSpider):
     name = "flexicar"
     allowed_domains = ["flexicar.es"]
-    start_urls = ["https://www.flexicar.es/coches-segunda-mano/"]
+    start_urls = ['https://www.flexicar.es/coches-segunda-mano/']
     rules = (Rule(LinkExtractor(allow='coches-ocasion'), callback='parse_item', follow=True),)
 
     def parse_item(self, response):
@@ -23,5 +23,4 @@ class FlexicarSpider(CrawlSpider):
             item['consumption'] = car_features[7].get()
             item['tax_deductible'] = car_features[8].get()
 
-        if item['year'] is not None:
-            yield item
+        yield item
