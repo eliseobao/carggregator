@@ -13,6 +13,7 @@ shell:
 	docker run -it --rm \
 		-v $(shell pwd)/src:/app \
 		--entrypoint /bin/bash \
+		--network host \
 		${IMAGE_NAME}
 
 black:

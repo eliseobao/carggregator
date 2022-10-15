@@ -24,3 +24,20 @@ class MotorEsItem(Item):
     seats = Field()
     doors = Field()
     color = Field()
+
+
+class AutoScout24Item(Item):
+    url = Field()
+    location = Field()
+    brand = Field()
+    model = Field()
+    version = Field()
+    extras = Field()
+    price = Field()
+    odometer = Field()
+    transmission = Field()
+    registration_date = Field()
+    fuel = Field()
+    hp = Field()
+    seller = Field()
+
