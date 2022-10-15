@@ -22,3 +22,15 @@ class MotorEsEnum(ExtendedEnum):
     seats = "Plazas"
     doors = "Puertas"
     color = "Color exterior"
+
+
+class FlexicarEnum(ExtendedEnum):
+    year = 'Año'
+    odometer = 'Kilómetros'
+    fuel = 'Combustible'
+    doors_seats = 'Puertas / Plazas'
+    engine = 'Motor'
+    color = 'Color'
+    transmission = 'Cambio'
+    consumption = 'Consumo'
+    deductible = 'I.V.A Deducible'

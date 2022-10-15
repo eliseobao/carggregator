@@ -24,3 +24,19 @@ class MotorEsItem(Item):
     seats = Field()
     doors = Field()
     color = Field()
+
+
+class FlexicarItem(Item):
+    url = Field()
+    brand = Field()
+    model = Field()
+    version = Field()
+    year = Field()
+    odometer = Field()
+    fuel = Field()
+    doors_seats = Field()
+    engine = Field()
+    color = Field()
+    transmission = Field()
+    consumption = Field()
+    deductible = Field()
