@@ -2,11 +2,39 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
+from scrapy.item import Item, Field
 
-import scrapy
+
+class MotorEsItem(Item):
+    url = Field()
+    title = Field()
+    location = Field()
+    brand = Field()
+    model = Field()
+    version = Field()
+    price_cash = Field()
+    price_financed = Field()
+    fuel = Field()
+    hp = Field()
+    odometer = Field()
+    bodywork = Field()
+    registration_date = Field()
+    transmission = Field()
+    gears = Field()
+    seats = Field()
+    doors = Field()
+    color = Field()
 
 
-class ScrapperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class AutocasionItem(Item):
+    url = Field()
+    title = Field()
+    registration_date = Field()
+    odometer = Field()
+    transmission = Field()
+    fuel = Field()
+    hp = Field()
+    warranty = Field()
+    bodywork = Field()
+    color = Field()
+    environmental_badge = Field()

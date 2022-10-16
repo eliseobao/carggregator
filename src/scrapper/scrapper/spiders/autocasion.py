@@ -1,29 +1,50 @@
 import scrapy
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
+
+from ..enums import AutocasionEnum
+from ..items import AutocasionItem
 
 
-class AutocasionSpider(scrapy.Spider):
+class AutocasionSpider(CrawlSpider):
+
     name = "autocasion"
+    allowed_domains = ['autocasion.com']
+    start_urls = ['https://www.autocasion.com/coches-ocasion']
 
-    start_urls = [
-        'https://www.autocasion.com/coches-ocasion'
-    ]
+    custom_settings = {'CLOSESPIDER_PAGECOUNT': 20}
 
-    def parse(self, response):
+    rules = (
+        Rule(LinkExtractor(allow='coches-segunda-mano'), callback='parse_item', follow=True),
+    )
 
-        # check if there is an error
-        if response.css('div.alert.alert-warning').get() is None:
-            for car_ad in response.css('article.anuncio'):
-                content = car_ad.css('div.contenido-anuncio')
-                yield {
-                    'url': car_ad.css('a::attr(href)').get(),
-                    'name': content.css('h2::text').get(),
-                    'price': content.css('p.precio')[0].css('span::text').get(),
-                    'features': content.css('ul').css('li::text').getall()
-                }
+    def parse_item(self, response):
 
-            navegation = response.css('div.paginacion').css('ul').css('li')
-            # [-1] --> last item, bc the first can be the previus page
-            next_page = response.urljoin(navegation.css('a::attr(href)').getall()[-1])
-            yield scrapy.Request(next_page, callback=self.parse)
+        name_p1 = response.css('div.bloque.titulo-ficha').css('h1::text').get()
 
+        if name_p1 is not None:
 
+            name_p2 = response.css('div.bloque.titulo-ficha').css('h1').css('span::text').get()
+            car_features = response.css('ul.datos-basicos-ficha')
+            keys = self.process_list(car_features.css('li::text').getall())
+            values = self.process_list(car_features.css('li').css('span::text').getall())
+
+            item = AutocasionItem()
+            item['title'] = name_p1.strip() + " " + name_p2.strip() if name_p2 is not None else name_p1.strip()
+            item["url"] = response.request.url
+
+            for key, value in zip(keys, values):
+                if key in AutocasionEnum.list():
+                    item[AutocasionEnum(key).name] = value
+
+            yield item
+
+    def process_list(self, l_in):
+        l_out = []
+
+        for i in range(len(l_in)):
+            text = l_in[i].strip()
+            if text != '':
+                l_out.append(text)
+
+        return l_out
