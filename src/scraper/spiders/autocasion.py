@@ -2,8 +2,8 @@ import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
-from ..enums import AutocasionEnum
-from ..items import AutocasionItem
+from scraper.enums import AutocasionEnum
+from scraper.items import AutocasionItem
 
 
 class AutocasionSpider(CrawlSpider):
