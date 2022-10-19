@@ -33,7 +33,7 @@ class AutoScout24Item(Item):
     model = Field()
     version = Field()
     extras = Field()
-    price = Field()
+    price_cash = Field()
     odometer = Field()
     transmission = Field()
     registration_date = Field()

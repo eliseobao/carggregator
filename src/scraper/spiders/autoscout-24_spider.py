@@ -6,7 +6,7 @@ from scraper.items import AutoScout24Item
 
 
 class AutoScout24Spider(CrawlSpider):
-    name = "autoscout24"
+    name = 'autoscout24'
     allowed_domains = ['autoscout24.es']
     start_urls = ['https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N%2CU&atype=C&cy=E&page='
                   + str(x) + '' for x in range(1, 20)]
@@ -21,7 +21,7 @@ class AutoScout24Spider(CrawlSpider):
         item['version'] = response.css('div.StageTitle_modelVersion__Rmzgd::text').get()
         item['extras'] = response.css('h4.StageSubtitle_subTitle__WVv17::text').get()
         item['location'] = response.css('a.scr-link.LocationWithPin_locationItem__pHhCa::text').get()
-        item['price'] = response.css('span.StandardPrice_price__X_zzU::text').get()
+        item['price_cash'] = response.css('span.StandardPrice_price__X_zzU::text').get()
 
         keys = response.css('div.VehicleOverview_itemTitle__W0qyv::text').getall()
         values = response.css('div.VehicleOverview_itemText__V1yKT::text').getall()
