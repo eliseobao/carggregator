@@ -118,6 +118,11 @@ Crawl and index [autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=
 make crawl-autoscout24
 ```
 
+Crawl and index [autocasion](https://www.autocasion.com/coches-ocasion):
+```sh
+make crawl-autocasion
+```
+
 ## License
 
 GNU General Public License v3.0
