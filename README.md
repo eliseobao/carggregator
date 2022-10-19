@@ -113,6 +113,10 @@ Crawl and index [motor.es](https://www.motor.es/coches-segunda-mano/):
 make crawl-motor.es
 ```
 
+Crawl and index [autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N,U&atype=C&cy=E):
+```sh
+make crawl-autoscout24
+```
 
 ## License
 
