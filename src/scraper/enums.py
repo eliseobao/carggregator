@@ -22,3 +22,16 @@ class MotorEsEnum(ExtendedEnum):
     seats = "Plazas"
     doors = "Puertas"
     color = "Color exterior"
+
+
+class AutoScout24Enum(ExtendedEnum):
+    brand = "Marca"
+    model = "Modelo"
+    version = "Versión"
+    price_cash = "Precio"
+    fuel = "Tipo de combustible"
+    hp = "Potencia"
+    odometer = "Kilometraje"
+    registration_date = "Año"
+    transmission = "Tipo de cambio"
+    seller = "Vendedor"

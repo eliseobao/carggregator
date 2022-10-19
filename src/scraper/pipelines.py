@@ -15,8 +15,14 @@ class CleanUpPipeline:
         for key in list(item.keys()):
             value = item[key]
 
-            if key in ["odometer", "price_cash", "price_financed", "hp"]:
+            if key in ["odometer", "price_cash", "price_financed"]:
                 item[key] = get_only_numbers(value)
+
+            if key == "hp":
+                if len(value.split()) > 2:
+                    item[key] = get_only_numbers(value.split()[2])
+                else:
+                    item[key] = get_only_numbers(value)
 
             if key == "registration_date" and '/' in value:
                 item[key] = value.split('/')[1].strip()
@@ -24,6 +30,9 @@ class CleanUpPipeline:
             if key == "transmission" and has_numbers(value):
                 item[key] = value.split()[0]
                 item["gears"] = get_only_numbers(value)
+
+            if (key == "location") and (len(value.split(',')) == 2):
+                item[key] = value.split(',')[0]
 
             if item[key] in ["-", ""]:
                 del item[key]

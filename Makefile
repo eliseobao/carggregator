@@ -13,6 +13,7 @@ shell:
 	docker run -it --rm \
 		-v $(shell pwd)/src:/app \
 		--entrypoint /bin/bash \
+		--network host \
 		${IMAGE_NAME}
 
 black:
@@ -31,3 +32,9 @@ crawl-motor.es:
 		--network host \
 		-v $(shell pwd)/src:/app \
 		${IMAGE_NAME} scrapy crawl motor.es
+
+crawl-autoscout24:
+	docker run -it --rm \
+		--network host \
+		-v $(shell pwd)/src:/app \
+		${IMAGE_NAME} scrapy crawl autoscout24
