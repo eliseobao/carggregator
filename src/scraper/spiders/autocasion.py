@@ -20,7 +20,10 @@ class AutocasionSpider(CrawlSpider):
 
     def parse_item(self, response):
 
-        name_p1 = response.css('div.bloque.titulo-ficha').css('h1::text').get()
+        card = response.css('div.bloque.titulo-ficha')
+        name_p1 = card.css('h1::text').get()
+        price_cash = response.css('div.precio').css('span::text').get()
+        price_financed = response.css('div.precio.financiado').css('span::text').get()
 
         if name_p1 is not None:
 
@@ -31,7 +34,11 @@ class AutocasionSpider(CrawlSpider):
 
             item = AutocasionItem()
             item['title'] = name_p1.strip() + " " + name_p2.strip() if name_p2 is not None else name_p1.strip()
-            item["url"] = response.request.url
+            item['url'] = response.request.url
+            item['source'] = 'Autocasion'
+            item['price_cash'] = price_cash
+            if price_financed is not None:
+                item['price_financed'] = price_financed
 
             for key, value in zip(keys, values):
                 if key in AutocasionEnum.list():

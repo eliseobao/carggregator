@@ -44,7 +44,10 @@ class AutoScout24Item(Item):
 
 class AutocasionItem(Item):
     url = Field()
+    source = Field()
     title = Field()
+    price_cash = Field()
+    price_financed = Field()
     registration_date = Field()
     odometer = Field()
     transmission = Field()
