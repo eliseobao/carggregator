@@ -21,6 +21,8 @@ black:
 		-v $(shell pwd)/src:/app \
 		${IMAGE_NAME} black /app
 
+up/minimal:
+	(cd devops && docker compose up -d elasticsearch)
 up:
 	(cd devops && docker compose up -d)
 
