@@ -35,3 +35,15 @@ class AutoScout24Enum(ExtendedEnum):
     registration_date = "Año"
     transmission = "Tipo de cambio"
     seller = "Vendedor"
+
+
+class AutocasionEnum(ExtendedEnum):
+    registration_date = 'Fecha de matriculación:'
+    odometer = 'Kilómetros:'
+    transmission = 'Cambio:'
+    fuel = 'Combustible:'
+    hp = 'Potencia (cv):'
+    warranty = 'Garantía:'
+    bodywork = 'Carrocería:'
+    color = 'Color:'
+    environmental_badge = 'Distintivo ambiental:'

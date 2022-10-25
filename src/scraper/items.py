@@ -41,3 +41,19 @@ class AutoScout24Item(Item):
     hp = Field()
     seller = Field()
 
+
+class AutocasionItem(Item):
+    url = Field()
+    source = Field()
+    title = Field()
+    price_cash = Field()
+    price_financed = Field()
+    registration_date = Field()
+    odometer = Field()
+    transmission = Field()
+    fuel = Field()
+    hp = Field()
+    warranty = Field()
+    bodywork = Field()
+    color = Field()
+    environmental_badge = Field()

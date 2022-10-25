@@ -38,3 +38,9 @@ crawl-autoscout24:
 		--network host \
 		-v $(shell pwd)/src:/app \
 		${IMAGE_NAME} scrapy crawl autoscout24
+
+crawl-autocasion:
+	docker run -it --rm \
+		--network host \
+		-v $(shell pwd)/src:/app \
+		${IMAGE_NAME} scrapy crawl autocasion
