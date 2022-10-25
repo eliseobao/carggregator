@@ -23,14 +23,12 @@
 </p>
 
 
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
-[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
-
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 
 ## _Your second-hand car easier than ever_
 
@@ -47,6 +45,7 @@ Carggregator uses a number of open source projects to work properly:
 - [user_agent] - A module for generating random, valid web user agents.
 - [Elasticsearch] - Distributed, RESTful search and analytics engine at the heart of the Elastic Stack.
 - [Kibana] - A browser-based analytics and search dashboard for Elasticsearch.
+- [App Search] - A pre-tuned search experience for Elasticsearch.
 - [ScrapyElasticSearch] - An Scrapy pipeline which allows you to store scrapy items in Elasticsearch.
 
 And of course Carggregator itself is open source with a [public repository][carggregator] on GitHub.
@@ -98,12 +97,17 @@ make black
 
 ### Docker
 
-Deploy Elasticsearch and Kibana services:
+Deploy Elasticsearch, Kibana and App Search services:
 ```sh
 make up
 ```
 
-Stop Elasticsearch and Kibana services:
+Deploy only Elasticsearch service:
+```sh
+make up/minimal
+```
+
+Stop deployed services:
 ```sh
 make down
 ```
@@ -136,4 +140,5 @@ GNU General Public License v3.0
 [user_agent]: <https://github.com/lorien/user_agent>
 [Elasticsearch]: <https://github.com/elastic/elasticsearch>
 [Kibana]: <https://github.com/elastic/kibana>
+[App Search]: <https://github.com/elastic/app-search-javascript>
 [ScrapyElasticSearch]: <https://github.com/jayzeng/scrapy-elasticsearch>
