@@ -23,26 +23,33 @@ black:
 
 up/minimal:
 	(cd devops && docker compose up -d elasticsearch)
+
 up:
 	(cd devops && docker compose up -d)
 
 down:
 	(cd devops && docker compose down -v)
 
+# Default value for CLOSESPIDER_ITEMCOUNT
+items=0
+
 crawl-motor.es:
 	docker run -it --rm \
 		--network host \
 		-v $(shell pwd)/src:/app \
-		${IMAGE_NAME} scrapy crawl motor.es
+		${IMAGE_NAME} scrapy crawl motor.es -s CLOSESPIDER_ITEMCOUNT=$(items)
 
 crawl-autoscout24:
 	docker run -it --rm \
 		--network host \
 		-v $(shell pwd)/src:/app \
-		${IMAGE_NAME} scrapy crawl autoscout24
+		${IMAGE_NAME} scrapy crawl autoscout24 -s CLOSESPIDER_ITEMCOUNT=$(items)
+
 
 crawl-autocasion:
 	docker run -it --rm \
 		--network host \
 		-v $(shell pwd)/src:/app \
-		${IMAGE_NAME} scrapy crawl autocasion
+		${IMAGE_NAME} scrapy crawl autocasion -s CLOSESPIDER_ITEMCOUNT=$(items)
+
+crawl-all: crawl-motor.es crawl-autoscout24 crawl-autocasion

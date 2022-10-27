@@ -112,21 +112,30 @@ Stop deployed services:
 make down
 ```
 
-Crawl and index [motor.es](https://www.motor.es/coches-segunda-mano/):
+Crawl and index ~_n_ items from [motor.es](https://www.motor.es/coches-segunda-mano/).
+If not specified, all the webspace:
 ```sh
-make crawl-motor.es
+make crawl-motor.es [items=n]
 ```
 
-Crawl and index [autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N,U&atype=C&cy=E):
+Crawl and index ~_n_ items from [autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N,U&atype=C&cy=E).
+If `items` not specified, all the webspace:
 ```sh
-make crawl-autoscout24
+make crawl-autoscout24 [items=n]
 ```
 
-Crawl and index [autocasion](https://www.autocasion.com/coches-ocasion):
+Crawl and index ~_n_ items from [autocasion](https://www.autocasion.com/coches-ocasion).
+If `items` not specified, all the webspace:
 ```sh
-make crawl-autocasion
+make crawl-autocasion [items=n]
 ```
 
+Crawl and index ~_n_ items from [motor.es](https://www.motor.es/coches-segunda-mano/),
+[autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N,U&atype=C&cy=E) and
+[autocasion](https://www.autocasion.com/coches-ocasion). If `items` not specified, all the webspace:
+```sh
+make crawl-all [items=n]
+```
 ## License
 
 GNU General Public License v3.0
