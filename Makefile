@@ -45,7 +45,6 @@ crawl-autoscout24:
 		-v $(shell pwd)/src:/app \
 		${IMAGE_NAME} scrapy crawl autoscout24 -s CLOSESPIDER_ITEMCOUNT=$(items)
 
-
 crawl-autocasion:
 	docker run -it --rm \
 		--network host \
