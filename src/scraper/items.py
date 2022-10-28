@@ -40,6 +40,7 @@ class AutoScout24Item(Item):
     fuel = Field()
     hp = Field()
     seller = Field()
+    color = Field()
 
 
 class AutocasionItem(Item):
