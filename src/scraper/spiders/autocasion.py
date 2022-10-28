@@ -3,7 +3,7 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
 from scraper.enums import AutocasionEnum
-from scraper.items import AutocasionItem
+from scraper.items import CarItem
 
 
 class AutocasionSpider(CrawlSpider):
@@ -22,17 +22,18 @@ class AutocasionSpider(CrawlSpider):
 
         card = response.css('div.bloque.titulo-ficha')
         name_p1 = card.css('h1::text').get()
-        price_cash = response.css('div.precio').css('span::text').get()
-        price_financed = response.css('div.precio.financiado').css('span::text').get()
 
         if name_p1 is not None:
+
+            price_cash = response.css('div.precio').css('span::text').get()
+            price_financed = response.css('div.precio.financiado').css('span::text').get()
 
             name_p2 = response.css('div.bloque.titulo-ficha').css('h1').css('span::text').get()
             car_features = response.css('ul.datos-basicos-ficha')
             keys = self.process_list(car_features.css('li::text').getall())
             values = self.process_list(car_features.css('li').css('span::text').getall())
 
-            item = AutocasionItem()
+            item = CarItem()
             item['title'] = name_p1.strip() + " " + name_p2.strip() if name_p2 is not None else name_p1.strip()
             item['url'] = response.request.url
             item['source'] = 'Autocasion'
@@ -43,6 +44,12 @@ class AutocasionSpider(CrawlSpider):
             for key, value in zip(keys, values):
                 if key in AutocasionEnum.list():
                     item[AutocasionEnum(key).name] = value
+
+            # brand, location and model
+            blm = response.css('ul.breadcrumb').css('span::text').getall()
+            item['brand'] = blm[0]
+            item['location'] = blm[1]
+            item['model'] = blm[2]
 
             yield item
 

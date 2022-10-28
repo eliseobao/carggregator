@@ -5,6 +5,25 @@
 from scrapy.item import Item, Field
 
 
+class CarItem(Item):
+    url = Field()
+    title = Field()
+    source = Field()
+    location = Field()
+    brand = Field()
+    model = Field()
+    price_cash = Field()
+    price_financed = Field()
+    fuel = Field()
+    hp = Field()
+    odometer = Field()
+    registration_date = Field()
+    transmission = Field()
+    gears = Field() # marchas
+    seats = Field()
+    doors = Field()
+    # color = Field()
+
 class MotorEsItem(Item):
     url = Field()
     title = Field()
