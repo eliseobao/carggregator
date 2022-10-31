@@ -8,6 +8,11 @@ services:
     environment:
       - xpack.security.enabled=${ELASTIC_SECURITY}
       - discovery.type=single-node
+      - http.port=9200
+      - http.cors.enabled=true
+      - http.cors.allow-origin=http://localhost:1358,http://127.0.0.1:1358,http://localhost:3000
+      - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      - http.cors.allow-credentials=true
     ulimits:
       memlock:
         soft: -1
@@ -31,6 +36,14 @@ services:
     ports:
       - 5601:5601
     depends_on:
+      - elasticsearch
+
+  dejavu:
+    image: appbaseio/dejavu
+    container_name: dejavu
+    ports:
+      - 1358:1358
+    links:
       - elasticsearch
 
 volumes:

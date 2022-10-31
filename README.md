@@ -47,6 +47,7 @@ Carggregator uses a number of open source projects to work properly:
 - [Kibana] - A browser-based analytics and search dashboard for Elasticsearch.
 - [App Search] - A pre-tuned search experience for Elasticsearch.
 - [ScrapyElasticSearch] - An Scrapy pipeline which allows you to store scrapy items in Elasticsearch.
+- [dejavu] - The Missing Web UI for Elasticsearch: Import, browse and edit data with rich filters and query views, create search UIs visually.
 
 And of course Carggregator itself is open source with a [public repository][carggregator] on GitHub.
 
@@ -107,6 +108,11 @@ Deploy only Elasticsearch service:
 make up/minimal
 ```
 
+Deploy Elasticsearch and dejavu services:
+```sh
+make up/dejavu
+```
+
 Stop deployed services:
 ```sh
 make down
@@ -156,3 +162,4 @@ GNU General Public License v3.0
 [Kibana]: <https://github.com/elastic/kibana>
 [App Search]: <https://github.com/elastic/app-search-javascript>
 [ScrapyElasticSearch]: <https://github.com/jayzeng/scrapy-elasticsearch>
+[dejavu]: <https://github.com/appbaseio/dejavu>

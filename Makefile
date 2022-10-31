@@ -24,6 +24,9 @@ black:
 up/minimal:
 	(cd devops && docker compose up -d elasticsearch)
 
+up/dejavu:
+	(cd devops && docker compose up -d elasticsearch dejavu)
+
 up:
 	(cd devops && docker compose up -d)
 
