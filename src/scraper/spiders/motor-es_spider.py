@@ -18,8 +18,10 @@ class MotorEsSpider(CrawlSpider):
 
         if title is not None:
             item["title"] = title
+            item['publisher'] = 'motor.es'
             item["url"] = response.request.url
             item["location"] = response.request.url.split('/')[4].replace('-', ' ').title()
+            item["image"] = response.css('[alt=\'Foto 1\']').get().split('"')[1]
 
             keys = response.css('.ficha.zona-contenido dt ::text').getall()
             values = response.css('.ficha.zona-contenido dd ::text').getall()

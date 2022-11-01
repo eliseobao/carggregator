@@ -6,6 +6,7 @@ from scrapy.item import Item, Field
 
 
 class MotorEsItem(Item):
+    publisher = Field()
     url = Field()
     title = Field()
     location = Field()
@@ -24,9 +25,11 @@ class MotorEsItem(Item):
     seats = Field()
     doors = Field()
     color = Field()
+    image = Field()
 
 
 class AutoScout24Item(Item):
+    publisher = Field()
     url = Field()
     location = Field()
     brand = Field()
@@ -43,6 +46,7 @@ class AutoScout24Item(Item):
 
 
 class AutocasionItem(Item):
+    publisher = Field()
     url = Field()
     source = Field()
     title = Field()
