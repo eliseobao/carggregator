@@ -41,6 +41,7 @@ class AutoScout24Item(Item):
     hp = Field()
     seller = Field()
     color = Field()
+    image = Field()
 
 
 class AutocasionItem(Item):

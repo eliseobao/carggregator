@@ -22,6 +22,7 @@ class AutoScout24Spider(CrawlSpider):
         item['extras'] = response.css('h4.StageSubtitle_subTitle__WVv17::text').get()
         item['location'] = response.css('a.scr-link.LocationWithPin_locationItem__pHhCa::text').get()
         item['price_cash'] = response.css('span.StandardPrice_price__X_zzU::text').get()
+        item['image'] = response.css('picture.ImageWithBadge_picture__n6hct').css('img').get().split('"')[1]
 
         categories = response.css('h2.DetailsSectionTitle_text__gsMln::text').getall()
         for idx, elem in enumerate(categories):
