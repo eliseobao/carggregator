@@ -129,6 +129,11 @@ If `items` not specified, all the webspace:
 make crawl-autocasion [items=n]
 ```
 
+Automatically executes an example of the complete project functionality:
+```sh
+make demo
+```
+
 Update submodules recursively.
 ```sh
 make update
