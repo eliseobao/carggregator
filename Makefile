@@ -52,3 +52,6 @@ crawl-autocasion:
 		${IMAGE_NAME} scrapy crawl autocasion -s CLOSESPIDER_ITEMCOUNT=$(items)
 
 crawl-all: crawl-motor.es crawl-autoscout24 crawl-autocasion
+
+update:
+	git submodule update --init --recursive

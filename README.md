@@ -129,6 +129,11 @@ If `items` not specified, all the webspace:
 make crawl-autocasion [items=n]
 ```
 
+Update submodules recursively.
+```sh
+make update
+```
+
 Crawl and index ~_n_ items from [motor.es](https://www.motor.es/coches-segunda-mano/),
 [autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N,U&atype=C&cy=E) and
 [autocasion](https://www.autocasion.com/coches-ocasion). If `items` not specified, all the webspace:
