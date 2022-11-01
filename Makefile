@@ -21,14 +21,11 @@ black:
 		-v $(shell pwd)/src:/app \
 		${IMAGE_NAME} black /app
 
-up/minimal:
-	(cd devops && docker compose up -d elasticsearch)
-
-up/dejavu:
-	(cd devops && docker compose up -d elasticsearch dejavu)
-
 up:
 	(cd devops && docker compose up -d)
+
+up/minimal:
+	(cd devops && docker compose up -d elasticsearch)
 
 down:
 	(cd devops && docker compose down -v)
