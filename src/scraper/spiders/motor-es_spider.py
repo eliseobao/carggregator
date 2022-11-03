@@ -2,7 +2,7 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
 from scraper.enums import MotorEsEnum
-from scraper.items import MotorEsItem
+from scraper.items import CarItem
 
 
 class MotorEsSpider(CrawlSpider):
@@ -13,7 +13,7 @@ class MotorEsSpider(CrawlSpider):
 
     def parse_item(self, response):
 
-        item = MotorEsItem()
+        item = CarItem()
         title = response.css('.principal h1 ::text').get()
 
         if title is not None:

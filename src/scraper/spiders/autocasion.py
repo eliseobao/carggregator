@@ -2,8 +2,8 @@ import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
-from scraper.enums import AutocasionEnum
-from scraper.items import AutocasionItem
+from scraper.enums import AutocasionDetailsEnum, AutocasionTechEnum
+from scraper.items import CarItem
 
 
 class AutocasionSpider(CrawlSpider):
@@ -22,28 +22,56 @@ class AutocasionSpider(CrawlSpider):
 
         card = response.css('div.bloque.titulo-ficha')
         name_p1 = card.css('h1::text').get()
-        price_cash = response.css('div.precio').css('span::text').get()
-        price_financed = response.css('div.precio.financiado').css('span::text').get()
 
         if name_p1 is not None:
 
+            price_cash = response.css('div.precio').css('span::text').get()
+            price_financed = response.css('div.precio.financiado').css('span::text').get()
+
             name_p2 = response.css('div.bloque.titulo-ficha').css('h1').css('span::text').get()
+
+            item = CarItem()
+            item['title'] = name_p1.strip() + " " + name_p2.strip() if name_p2 is not None else name_p1.strip()
+            item['publisher'] = 'autocasion'
+            item['url'] = response.request.url
+            item['price_cash'] = price_cash
+
+            if price_financed is not None:
+                item['price_financed'] = price_financed
+
+            # Car details
             car_features = response.css('ul.datos-basicos-ficha')
             keys = self.process_list(car_features.css('li::text').getall())
             values = self.process_list(car_features.css('li').css('span::text').getall())
 
-            item = AutocasionItem()
-            item['title'] = name_p1.strip() + " " + name_p2.strip() if name_p2 is not None else name_p1.strip()
-            item['publisher'] = 'autocasion'
-            item['url'] = response.request.url
-            item['source'] = 'Autocasion'
-            item['price_cash'] = price_cash
-            if price_financed is not None:
-                item['price_financed'] = price_financed
+            for key, value in zip(keys, values):
+                if key in AutocasionDetailsEnum.list():
+                    item[AutocasionDetailsEnum(key).name] = value
+
+            # brand, location and model (blm)
+            blm = response.css('ul.breadcrumb').css('span::text').getall()
+            item['brand'] = blm[0]
+            item['location'] = blm[1]
+            item['model'] = blm[2]
+
+            # seats and doors
+            key = response.css('ul.tab-spec-1.active > li:not([class^="dimensiones"]) > span::text').getall()
+            values = response.css('ul.tab-spec-1.active > li:not([class^="dimensiones"])::text').getall()
 
             for key, value in zip(keys, values):
-                if key in AutocasionEnum.list():
-                    item[AutocasionEnum(key).name] = value
+                print(key)
+                print(value)
+                if key in AutocasionTechEnum.list():
+                    item[AutocasionTechEnum(key).name] = value
+
+            # gears
+            key = response.css('ul.tab-spec-3 > li:not([class^="dimensiones"]) > span::text').getall()
+            values = response.css('ul.tab-spec-3 > li:not([class^="dimensiones"])::text').getall()
+
+            for key, value in zip(keys, values):
+                if key == 'Número de marchas':
+                    item['gears'] = value
+                    break
 
             yield item
 

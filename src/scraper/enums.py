@@ -11,7 +11,7 @@ class ExtendedEnum(Enum):
 class MotorEsEnum(ExtendedEnum):
     brand = "Marca"
     model = "Modelo"
-    version = "Versión"
+    # version = "Versión" TODO
     price_cash = "Precio al contado"
     price_financed = "Precio financiado"
     fuel = "Combustible"
@@ -37,13 +37,14 @@ class AutoScout24Enum(ExtendedEnum):
     seller = "Vendedor"
 
 
-class AutocasionEnum(ExtendedEnum):
+class AutocasionDetailsEnum(ExtendedEnum):
     registration_date = 'Fecha de matriculación:'
     odometer = 'Kilómetros:'
     transmission = 'Cambio:'
     fuel = 'Combustible:'
     hp = 'Potencia (cv):'
-    warranty = 'Garantía:'
-    bodywork = 'Carrocería:'
     color = 'Color:'
-    environmental_badge = 'Distintivo ambiental:'
+
+class AutocasionTechEnum(ExtendedEnum):
+    seats = 'Número de plazas'
+    doors = 'Número de puertas'

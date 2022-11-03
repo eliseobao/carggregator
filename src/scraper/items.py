@@ -5,59 +5,22 @@
 from scrapy.item import Item, Field
 
 
-class MotorEsItem(Item):
-    publisher = Field()
+class CarItem(Item):
     url = Field()
     title = Field()
+    publisher = Field()
+    image = Field()
     location = Field()
     brand = Field()
     model = Field()
-    version = Field()
     price_cash = Field()
     price_financed = Field()
     fuel = Field()
     hp = Field()
     odometer = Field()
-    bodywork = Field()
     registration_date = Field()
     transmission = Field()
     gears = Field()
     seats = Field()
     doors = Field()
     color = Field()
-    image = Field()
-
-
-class AutoScout24Item(Item):
-    publisher = Field()
-    url = Field()
-    location = Field()
-    brand = Field()
-    model = Field()
-    version = Field()
-    extras = Field()
-    price_cash = Field()
-    odometer = Field()
-    transmission = Field()
-    registration_date = Field()
-    fuel = Field()
-    hp = Field()
-    seller = Field()
-
-
-class AutocasionItem(Item):
-    publisher = Field()
-    url = Field()
-    source = Field()
-    title = Field()
-    price_cash = Field()
-    price_financed = Field()
-    registration_date = Field()
-    odometer = Field()
-    transmission = Field()
-    fuel = Field()
-    hp = Field()
-    warranty = Field()
-    bodywork = Field()
-    color = Field()
-    environmental_badge = Field()
