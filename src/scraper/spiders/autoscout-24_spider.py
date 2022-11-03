@@ -4,6 +4,7 @@ from scrapy.spiders import CrawlSpider, Rule
 from scraper.enums import AutoScout24Enum
 from scraper.items import CarItem
 
+# TODO: adapt to CarItem
 
 class AutoScout24Spider(CrawlSpider):
     name = 'autoscout24'
@@ -15,7 +16,8 @@ class AutoScout24Spider(CrawlSpider):
     @staticmethod
     def parse_item(response):
         item = CarItem()
-        item['publisher'] = 'AutoScout24'
+
+        item['publisher'] = 'autoscout'
         item['url'] = response.request.url
         item['brand'] = response.css('span.StageTitle_boldClassifiedInfo__L7JmO::text').get().rstrip()
         item['model'] = response.css('span.StageTitle_model__pG_6i.StageTitle_boldClassifiedInfo__L7JmO::text').get()

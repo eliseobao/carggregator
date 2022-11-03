@@ -44,8 +44,7 @@ Carggregator uses a number of open source projects to work properly:
 - [Scrappy] - A fast high-level web crawling and web scraping framework.
 - [user_agent] - A module for generating random, valid web user agents.
 - [Elasticsearch] - Distributed, RESTful search and analytics engine at the heart of the Elastic Stack.
-- [Kibana] - A browser-based analytics and search dashboard for Elasticsearch.
-- [App Search] - A pre-tuned search experience for Elasticsearch.
+- [dejavu] - The Missing Web UI for Elasticsearch: Import, browse and edit data with rich filters and query views, create search UIs visually.
 - [ScrapyElasticSearch] - An Scrapy pipeline which allows you to store scrapy items in Elasticsearch.
 
 And of course Carggregator itself is open source with a [public repository][carggregator] on GitHub.
@@ -97,7 +96,7 @@ make black
 
 ### Docker
 
-Deploy Elasticsearch, Kibana and App Search services:
+Deploy Elasticsearch and dejavu services:
 ```sh
 make up
 ```
@@ -130,6 +129,16 @@ If `items` not specified, all the webspace:
 make crawl-autocasion [items=n]
 ```
 
+Automatically executes an example of the complete project functionality:
+```sh
+make demo
+```
+
+Update submodules recursively.
+```sh
+make update
+```
+
 Crawl and index ~_n_ items from [motor.es](https://www.motor.es/coches-segunda-mano/),
 [autoscout24](https://www.autoscout24.es/lst?sort=standard&desc=0&ustate=N,U&atype=C&cy=E) and
 [autocasion](https://www.autocasion.com/coches-ocasion). If `items` not specified, all the webspace:
@@ -153,6 +162,5 @@ GNU General Public License v3.0
 [Scrappy]: <https://github.com/scrapy/scrapy>
 [user_agent]: <https://github.com/lorien/user_agent>
 [Elasticsearch]: <https://github.com/elastic/elasticsearch>
-[Kibana]: <https://github.com/elastic/kibana>
-[App Search]: <https://github.com/elastic/app-search-javascript>
+[dejavu]: <https://github.com/appbaseio/dejavu>
 [ScrapyElasticSearch]: <https://github.com/jayzeng/scrapy-elasticsearch>
