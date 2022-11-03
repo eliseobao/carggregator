@@ -26,23 +26,25 @@ class MotorEsItem(Item):
     color = Field()
 
 
-class AutoScout24Item(Item):
+class CarItem(Item):
     url = Field()
+    title = Field()
+    publisher = Field()
+    image = Field()
     location = Field()
     brand = Field()
     model = Field()
-    version = Field()
-    extras = Field()
     price_cash = Field()
-    odometer = Field()
-    transmission = Field()
-    registration_date = Field()
+    price_financed = Field()
     fuel = Field()
     hp = Field()
-    seller = Field()
+    odometer = Field()
+    registration_date = Field()
+    transmission = Field()
+    gears = Field()
+    seats = Field()
+    doors = Field()
     color = Field()
-    image = Field()
-
 
 class AutocasionItem(Item):
     url = Field()
