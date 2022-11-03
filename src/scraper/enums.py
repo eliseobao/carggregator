@@ -34,7 +34,6 @@ class AutoScout24Enum(ExtendedEnum):
     odometer = "Kilometraje"
     registration_date = "Año"
     transmission = "Tipo de cambio"
-    seller = "Vendedor"
 
 
 class AutocasionEnum(ExtendedEnum):
