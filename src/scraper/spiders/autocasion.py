@@ -32,8 +32,8 @@ class AutocasionSpider(CrawlSpider):
 
             item = CarItem()
             item['title'] = name_p1.strip() + " " + name_p2.strip() if name_p2 is not None else name_p1.strip()
+            item['publisher'] = 'autocasion'
             item['url'] = response.request.url
-            item['source'] = 'Autocasion'
             item['price_cash'] = price_cash
 
             if price_financed is not None:

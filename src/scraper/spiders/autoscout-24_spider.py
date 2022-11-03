@@ -16,6 +16,7 @@ class AutoScout24Spider(CrawlSpider):
     @staticmethod
     def parse_item(response):
         item = CarItem()
+        item['publisher'] = 'autoscout'
         item['url'] = response.request.url
         item['brand'] = response.css('span.StageTitle_boldClassifiedInfo__L7JmO::text').get().rstrip()
         item['model'] = response.css('span.StageTitle_model__pG_6i.StageTitle_boldClassifiedInfo__L7JmO::text').get()

@@ -8,7 +8,8 @@ from scrapy.item import Item, Field
 class CarItem(Item):
     url = Field()
     title = Field()
-    source = Field()
+    publisher = Field()
+    image = Field()
     location = Field()
     brand = Field()
     model = Field()
