@@ -12,8 +12,6 @@ class AutocasionSpider(CrawlSpider):
     allowed_domains = ['autocasion.com']
     start_urls = ['https://www.autocasion.com/coches-ocasion']
 
-    custom_settings = {'CLOSESPIDER_PAGECOUNT': 20}
-
     rules = (
         Rule(LinkExtractor(allow='coches-segunda-mano'), callback='parse_item', follow=True),
     )
