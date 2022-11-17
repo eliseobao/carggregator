@@ -4,8 +4,6 @@ from scrapy.spiders import CrawlSpider, Rule
 from scraper.enums import AutoScout24Enum
 from scraper.items import CarItem
 
-# TODO: adapt to CarItem
-
 class AutoScout24Spider(CrawlSpider):
     name = 'autoscout24'
     allowed_domains = ['autoscout24.es']
@@ -25,14 +23,6 @@ class AutoScout24Spider(CrawlSpider):
         item['location'] = response.css('a.scr-link.LocationWithPin_locationItem__pHhCa::text').get()
         item['price_cash'] = response.css('span.StandardPrice_price__X_zzU::text').get()
         item['image'] = response.css('picture.ImageWithBadge_picture__n6hct').css('img').get().split('"')[1]
-
-        categories = response.css('h2.DetailsSectionTitle_text__gsMln::text').getall()
-        for idx, elem in enumerate(categories):
-            if elem == 'Color y Tapicería':
-                index = idx - 1
-                break
-        item['color'] = response.css('dl.DataGrid_defaultDlStyle__969Qm')[index].css(
-            'dd.DataGrid_defaultDdStyle__29SKf.DataGrid_fontBold__r__dO::text').get()
 
         keys = response.css('div.VehicleOverview_itemTitle__W0qyv::text').getall()
         values = response.css('div.VehicleOverview_itemText__V1yKT::text').getall()

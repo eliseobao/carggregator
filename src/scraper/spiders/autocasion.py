@@ -6,6 +6,17 @@ from scraper.enums import AutocasionDetailsEnum
 from scraper.items import CarItem
 
 
+def process_list(l_in):
+    l_out = []
+
+    for i in range(len(l_in)):
+        text = l_in[i].strip()
+        if text != '':
+            l_out.append(text)
+
+    return l_out
+
+
 class AutocasionSpider(CrawlSpider):
 
     name = "autocasion"
@@ -40,8 +51,8 @@ class AutocasionSpider(CrawlSpider):
 
             # Car details
             car_features = response.css('ul.datos-basicos-ficha')
-            keys = self.process_list(car_features.css('li::text').getall())
-            values = self.process_list(car_features.css('li').css('span::text').getall())
+            keys = process_list(car_features.css('li::text').getall())
+            values = process_list(car_features.css('li').css('span::text').getall())
 
             for key, value in zip(keys, values):
                 if key in AutocasionDetailsEnum.list():
@@ -54,13 +65,3 @@ class AutocasionSpider(CrawlSpider):
             item['model'] = blm[-2]
 
             yield item
-
-    def process_list(self, l_in):
-        l_out = []
-
-        for i in range(len(l_in)):
-            text = l_in[i].strip()
-            if text != '':
-                l_out.append(text)
-
-        return l_out

@@ -20,4 +20,3 @@ class CarItem(Item):
     odometer = Field()
     registration_date = Field()
     transmission = Field()
-    color = Field()
