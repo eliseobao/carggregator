@@ -2,7 +2,7 @@ import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
-from scraper.enums import AutocasionDetailsEnum, AutocasionTechEnum
+from scraper.enums import AutocasionDetailsEnum
 from scraper.items import CarItem
 
 
