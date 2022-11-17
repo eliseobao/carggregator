@@ -19,8 +19,6 @@ class MotorEsEnum(ExtendedEnum):
     odometer = "Kilómetros"
     registration_date = "Matriculación"
     transmission = "Cambio"
-    seats = "Plazas"
-    doors = "Puertas"
     color = "Color exterior"
 
 
@@ -43,7 +41,3 @@ class AutocasionDetailsEnum(ExtendedEnum):
     fuel = 'Combustible:'
     hp = 'Potencia (cv):'
     color = 'Color:'
-
-class AutocasionTechEnum(ExtendedEnum):
-    seats = 'Número de plazas'
-    doors = 'Número de puertas'

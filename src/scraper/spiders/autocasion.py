@@ -53,25 +53,6 @@ class AutocasionSpider(CrawlSpider):
             item['location'] = blm[-3]
             item['model'] = blm[-2]
 
-            # seats and doors
-            key = response.css('ul.tab-spec-1.active > li:not([class^="dimensiones"]) > span::text').getall()
-            values = response.css('ul.tab-spec-1.active > li:not([class^="dimensiones"])::text').getall()
-
-            for key, value in zip(keys, values):
-                print(key)
-                print(value)
-                if key in AutocasionTechEnum.list():
-                    item[AutocasionTechEnum(key).name] = value
-
-            # gears
-            key = response.css('ul.tab-spec-3 > li:not([class^="dimensiones"]) > span::text').getall()
-            values = response.css('ul.tab-spec-3 > li:not([class^="dimensiones"])::text').getall()
-
-            for key, value in zip(keys, values):
-                if key == 'Número de marchas':
-                    item['gears'] = value
-                    break
-
             yield item
 
     def process_list(self, l_in):
