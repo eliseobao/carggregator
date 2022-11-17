@@ -30,7 +30,7 @@ up/minimal: build
 down:
 	(cd devops && docker compose down)
 
-down/delete:
+down/remove:
 	(cd devops && docker compose down -v)
 
 # Default value for CLOSESPIDER_ITEMCOUNT
