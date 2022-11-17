@@ -28,6 +28,9 @@ up/minimal: build
 	(cd devops && docker compose up -d elasticsearch)
 
 down:
+	(cd devops && docker compose down)
+
+down/delete:
 	(cd devops && docker compose down -v)
 
 # Default value for CLOSESPIDER_ITEMCOUNT
