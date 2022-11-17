@@ -20,7 +20,3 @@ class CarItem(Item):
     odometer = Field()
     registration_date = Field()
     transmission = Field()
-    gears = Field()
-    seats = Field()
-    doors = Field()
-    color = Field()

@@ -2,8 +2,19 @@ import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
-from scraper.enums import AutocasionDetailsEnum, AutocasionTechEnum
+from scraper.enums import AutocasionDetailsEnum
 from scraper.items import CarItem
+
+
+def process_list(l_in):
+    l_out = []
+
+    for i in range(len(l_in)):
+        text = l_in[i].strip()
+        if text != '':
+            l_out.append(text)
+
+    return l_out
 
 
 class AutocasionSpider(CrawlSpider):
@@ -40,8 +51,8 @@ class AutocasionSpider(CrawlSpider):
 
             # Car details
             car_features = response.css('ul.datos-basicos-ficha')
-            keys = self.process_list(car_features.css('li::text').getall())
-            values = self.process_list(car_features.css('li').css('span::text').getall())
+            keys = process_list(car_features.css('li::text').getall())
+            values = process_list(car_features.css('li').css('span::text').getall())
 
             for key, value in zip(keys, values):
                 if key in AutocasionDetailsEnum.list():
@@ -53,33 +64,4 @@ class AutocasionSpider(CrawlSpider):
             item['location'] = blm[-3]
             item['model'] = blm[-2]
 
-            # seats and doors
-            key = response.css('ul.tab-spec-1.active > li:not([class^="dimensiones"]) > span::text').getall()
-            values = response.css('ul.tab-spec-1.active > li:not([class^="dimensiones"])::text').getall()
-
-            for key, value in zip(keys, values):
-                print(key)
-                print(value)
-                if key in AutocasionTechEnum.list():
-                    item[AutocasionTechEnum(key).name] = value
-
-            # gears
-            key = response.css('ul.tab-spec-3 > li:not([class^="dimensiones"]) > span::text').getall()
-            values = response.css('ul.tab-spec-3 > li:not([class^="dimensiones"])::text').getall()
-
-            for key, value in zip(keys, values):
-                if key == 'Número de marchas':
-                    item['gears'] = value
-                    break
-
             yield item
-
-    def process_list(self, l_in):
-        l_out = []
-
-        for i in range(len(l_in)):
-            text = l_in[i].strip()
-            if text != '':
-                l_out.append(text)
-
-        return l_out

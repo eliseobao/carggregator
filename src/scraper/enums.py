@@ -11,7 +11,6 @@ class ExtendedEnum(Enum):
 class MotorEsEnum(ExtendedEnum):
     brand = "Marca"
     model = "Modelo"
-    # version = "Versión" TODO
     price_cash = "Precio al contado"
     price_financed = "Precio financiado"
     fuel = "Combustible"
@@ -19,9 +18,6 @@ class MotorEsEnum(ExtendedEnum):
     odometer = "Kilómetros"
     registration_date = "Matriculación"
     transmission = "Cambio"
-    seats = "Plazas"
-    doors = "Puertas"
-    color = "Color exterior"
 
 
 class AutoScout24Enum(ExtendedEnum):
@@ -42,8 +38,3 @@ class AutocasionDetailsEnum(ExtendedEnum):
     transmission = 'Cambio:'
     fuel = 'Combustible:'
     hp = 'Potencia (cv):'
-    color = 'Color:'
-
-class AutocasionTechEnum(ExtendedEnum):
-    seats = 'Número de plazas'
-    doors = 'Número de puertas'

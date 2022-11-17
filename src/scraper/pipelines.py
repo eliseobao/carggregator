@@ -25,6 +25,9 @@ class CleanUpPipeline:
             if key in ["odometer", "price_cash", "price_financed"]:
                 item[key] = int(get_only_numbers(value))
 
+            if key == "transmission":
+                item[key] = item[key].split(' ')[0]
+
             if key == "hp":
                 if len(value.split()) > 2:
                     item[key] = int(get_only_numbers(value.split()[2]))
@@ -34,11 +37,7 @@ class CleanUpPipeline:
             if key == "registration_date" and '/' in value:
                 item[key] = value.split('/')[1].strip()
 
-            if key == "transmission" and has_numbers(value):
-                item[key] = value.split()[0]
-                item["gears"] = int(get_only_numbers(value))
-
             if (key == "location") and (len(value.split(',')) == 2):
-                item[key] = value.split(',')[0]
+                item[key] = value.split(',')[0].title()
 
         return item
