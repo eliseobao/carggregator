@@ -114,9 +114,14 @@ Deploy only Elasticsearch service:
 make up/minimal
 ```
 
-Stop deployed services:
+Stop deployed services preserving volumes:
 ```sh
 make down
+```
+
+Stop deployed services and remove volumes:
+```sh
+make down/remove
 ```
 
 Crawl and index ~_n_ items from [motor.es](https://www.motor.es/coches-segunda-mano/).
