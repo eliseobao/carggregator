@@ -15,6 +15,13 @@ class CleanUpPipeline:
         for key in list(item.keys()):
             value = item[key]
 
+            if item[key] in ["-", ""]:
+                del item[key]
+                continue
+
+            if key not in ["url", "image", "publisher"]:
+                item[key] = item[key].title()
+
             if key in ["odometer", "price_cash", "price_financed"]:
                 item[key] = int(get_only_numbers(value))
 
@@ -33,8 +40,5 @@ class CleanUpPipeline:
 
             if (key == "location") and (len(value.split(',')) == 2):
                 item[key] = value.split(',')[0]
-
-            if item[key] in ["-", ""]:
-                del item[key]
 
         return item
