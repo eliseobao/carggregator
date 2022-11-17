@@ -1,5 +1,3 @@
-# carggregator
-
 <p align="center">
     <a href="https://github.com/eliseobao/carggregator/" alt="carggregator">
         <img src="https://github.com/eliseobao/carggregator/blob/develop/images/corporate/carggregator_logo_1.svg" />
