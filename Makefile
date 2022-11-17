@@ -32,26 +32,33 @@ down:
 
 # Default value for CLOSESPIDER_ITEMCOUNT
 items=0
+DATE=$(LOGPATH)$(shell date).json
 
-crawl-motor.es: up/minimal
+crawl-motor.es:
 	docker run -it --rm \
 		--network host \
-		-v $(shell pwd)/src:/app \
-		${IMAGE_NAME} scrapy crawl motor.es -s CLOSESPIDER_ITEMCOUNT=$(items)
+		-v $(shell pwd):/app \
+		${IMAGE_NAME} bash -c 'cd src && scrapy crawl motor.es \
+			-s CLOSESPIDER_ITEMCOUNT=$(items) \
+			-o ../crawling_results/motor_es/$(LOGPATH)$(shell  date +%Y_%m_%d__%H_%M_%S).json'
 
-crawl-autoscout24: up/minimal
+crawl-autoscout24:
 	docker run -it --rm \
 		--network host \
-		-v $(shell pwd)/src:/app \
-		${IMAGE_NAME} scrapy crawl autoscout24 -s CLOSESPIDER_ITEMCOUNT=$(items)
+		-v $(shell pwd):/app \
+		${IMAGE_NAME} bash -c 'cd src && scrapy crawl autoscout24 \
+			-s CLOSESPIDER_ITEMCOUNT=$(items) \
+			-o ../crawling_results/autoscout24/$(LOGPATH)$(shell  date +%Y_%m_%d__%H_%M_%S).json'
 
-crawl-autocasion: up/minimal
+crawl-autocasion:
 	docker run -it --rm \
 		--network host \
-		-v $(shell pwd)/src:/app \
-		${IMAGE_NAME} scrapy crawl autocasion -s CLOSESPIDER_ITEMCOUNT=$(items)
+		-v $(shell pwd):/app \
+		${IMAGE_NAME} bash -c 'cd src && scrapy crawl autocasion \
+			-s CLOSESPIDER_ITEMCOUNT=$(items) \
+			-o ../crawling_results/autocasion/$(LOGPATH)$(shell  date +%Y_%m_%d__%H_%M_%S).json'
 
-crawl-all: up/minimal crawl-motor.es crawl-autoscout24 crawl-autocasion
+crawl-all: crawl-motor.es crawl-autoscout24 crawl-autocasion
 
 demo:
 	devops/demo_script.sh
