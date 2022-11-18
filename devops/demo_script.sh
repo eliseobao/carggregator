@@ -1,4 +1,6 @@
-make down && make up/minimal
+make update
+
+make down/remove && make up/minimal
 
 make crawl-all items=30
 
