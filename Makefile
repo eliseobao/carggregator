@@ -23,9 +23,11 @@ black: build
 
 up: build
 	(cd devops && docker compose up -d)
+	devops/create_index.sh
 
 up/minimal: build
 	(cd devops && docker compose up -d elasticsearch)
+	devops/create_index.sh
 
 down:
 	(cd devops && docker compose down)

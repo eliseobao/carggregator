@@ -35,7 +35,7 @@ class CleanUpPipeline:
                     item[key] = int(get_only_numbers(value))
 
             if key == "registration_date" and '/' in value:
-                item[key] = value.split('/')[1].strip()
+                item[key] = int(value.split('/')[1].strip())
 
             if (key == "location") and (len(value.split(',')) == 2):
                 item[key] = value.split(',')[0].title()

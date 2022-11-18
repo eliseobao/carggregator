@@ -1,4 +1,4 @@
-make down && make up/minimal && sleep 30
+make down && make up/minimal
 
 make crawl-all items=30
 
